@@ -5,5 +5,10 @@
 
 #connect4Canvas {
   display: block;
-  margin: 0 auto;
+  margin: auto;
+}
+
+#gameDiscs > img {
+  width: 80px;
+  height: 80px;
 }

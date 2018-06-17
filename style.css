@@ -6,9 +6,11 @@
 #connect4Canvas {
   display: block;
   margin: auto;
+  z-index: 100;
 }
 
-#gameDiscs > img {
+#game-discs > img {
+  display: none;
   width: 80px;
   height: 80px;
 }

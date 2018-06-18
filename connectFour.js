@@ -1,6 +1,8 @@
 const canvas = document.getElementById("connect4Canvas");
 const ctx = canvas.getContext("2d");
 
+let player = document.getElementById("current-player");
+
 let discDiameter = 80;
 let column1 = 10;
 let column2 = 20 + discDiameter;
@@ -35,12 +37,14 @@ const draw = () => {
         ctx.drawImage(red, column1, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 2;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column1, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 1;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       }
     }
@@ -57,12 +61,14 @@ const draw = () => {
         ctx.drawImage(red, column2, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 2;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column2, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 1;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       }
     }
@@ -79,12 +85,14 @@ const draw = () => {
         ctx.drawImage(red, column3, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 2;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column3, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 1;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       }
     }
@@ -101,12 +109,14 @@ const draw = () => {
         ctx.drawImage(red, column4, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 2;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column4, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 1;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       }
     }
@@ -123,12 +133,14 @@ const draw = () => {
         ctx.drawImage(red, column5, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 2;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column5, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 1;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       }
     }
@@ -144,12 +156,14 @@ const draw = () => {
         ctx.drawImage(red, column6, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 2;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column6, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 1;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       }
     }
@@ -165,12 +179,14 @@ const draw = () => {
         ctx.drawImage(red, column7, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 2;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column7, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
         currentColumn[i] = true;
         currentPlayer = 1;
+        player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       }
     }

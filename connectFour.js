@@ -196,6 +196,7 @@ const draw = () => {
 };
 
 function gameOver() {
+  // check if game rack is filled up
   let allSpaces = [].concat.apply([], gameBoard);
   function isFilled(space) {
     return space !== false;
@@ -205,7 +206,27 @@ function gameOver() {
     document.location.reload();
   }
 
-  
+  // check if vertical four in a row
+  for (let i=0; i < gameBoard.length; i++) {
+    let column = gameBoard[i];
+    let prev = null;
+    let inARow = 0;
+    for (let j=0; j < column.length; j++) {
+      if (column[j] !== prev && column[j] !== false) {
+        prev = column[j];
+        inARow = 1;
+      } else if (column[j] === prev && column[j] !== false) {
+        inARow += 1;
+      }
+      if (inARow === 4 && prev === "red") {
+        alert("Player 1 wins!");
+        document.location.reload();
+      } else if (inARow === 4 && prev === "yellow") {
+        alert("Player 2 wins!");
+        document.location.reload();
+      }
+    }
+  }
 }
 
 document.addEventListener("keydown", keyDownHandler, false);

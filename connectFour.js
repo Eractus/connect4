@@ -258,7 +258,9 @@ function gameOver() {
     }
   }
 
-  // check if up diagonal four in a row
+  // check if up right diagonal four in a row
+
+  // check if down right diagonal four in a row
 
 }
 

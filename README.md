@@ -1,5 +1,7 @@
 # Connect 4
 
+[Live Demo](https://eractus.github.io/connect4/)
+
 This app is a true-to-its-roots replica of the classic game Connect 4. It is a two player, turn-based app that uses the number keys to dictate where the current player would like to place their next disc.
 
 1. The game starts immediately upon the page loading.

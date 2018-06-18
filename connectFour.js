@@ -257,10 +257,35 @@ function gameOver() {
       }
     }
   }
+  // check for down right diagonal four in a row down the left
+  for (let i=3; i < gameBoard.length; i++) {
+    let x = 0;
+    let y = i;
+    let prev = null;
+    let inARow = 0;
+    while (y >= 0) {
+      if (gameBoard[x][y] !== prev && gameBoard[x][y] !== false) {
+        prev = gameBoard[x][y];
+        inARow = 1;
+      } else if (gameBoard[x][y] === prev && gameBoard[x][y] !== false ) {
+        inARow += 1;
+      }
+      if (inARow === 4 && prev === "red") {
+        alert("Player 1 wins!");
+        document.location.reload();
+      } else if (inARow === 4 && prev === "yellow") {
+        alert("Player 2 wins!");
+        document.location.reload();
+      }
+      x++;
+      y--;
+    }
+  }
+  // check for down left diagonal four in a row down the right
 
-  // check if up right diagonal four in a row
+  // check for down right diagonal four in a row along the top
 
-  // check if down right diagonal four in a row
+  // check for down left diagonal four in a row along the top
 
 }
 

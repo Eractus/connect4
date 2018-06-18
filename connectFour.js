@@ -242,7 +242,9 @@ function gameOver() {
     let prev = null;
     let inARow = 0;
     for (let j=0; j < column.length; j++) {
-      if (column[j] !== prev && column[j] !== false) {
+      if (column[j] === false) {
+        inARow = 0;
+      } else if (column[j] !== prev && column[j] !== false) {
         prev = column[j];
         inARow = 1;
       } else if (column[j] === prev && column[j] !== false) {
@@ -264,7 +266,9 @@ function gameOver() {
     let prev = null;
     let inARow = 0;
     while (y >= 0) {
-      if (gameBoard[x][y] !== prev && gameBoard[x][y] !== false) {
+      if (gameBoard[x][y] === false) {
+        inARow = 0;
+      } else if (gameBoard[x][y] !== prev && gameBoard[x][y] !== false) {
         prev = gameBoard[x][y];
         inARow = 1;
       } else if (gameBoard[x][y] === prev && gameBoard[x][y] !== false ) {
@@ -282,7 +286,31 @@ function gameOver() {
     }
   }
   // check for down left diagonal four in a row down the right
-
+  for (let i=3; i < gameBoard.length; i++) {
+    let x = 6;
+    let y = i;
+    let prev = null;
+    let inARow = 0;
+    while (y >= 0) {
+      if (gameBoard[x][y] === false) {
+        inARow = 0;
+      } else if (gameBoard[x][y] !== prev && gameBoard[x][y] !== false) {
+        prev = gameBoard[x][y];
+        inARow = 1;
+      } else if (gameBoard[x][y] === prev && gameBoard[x][y] !== false ) {
+        inARow += 1;
+      }
+      if (inARow === 4 && prev === "red") {
+        alert("Player 1 wins!");
+        document.location.reload();
+      } else if (inARow === 4 && prev === "yellow") {
+        alert("Player 2 wins!");
+        document.location.reload();
+      }
+      x--;
+      y--;
+    }
+  }
   // check for down right diagonal four in a row along the top
 
   // check for down left diagonal four in a row along the top

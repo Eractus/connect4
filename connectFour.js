@@ -35,14 +35,14 @@ const draw = () => {
       if (currentColumn[i] === false && currentPlayer === 1) {
         let red = document.getElementById("red-disc");
         ctx.drawImage(red, column1, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "red";
         currentPlayer = 2;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column1, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "yellow";
         currentPlayer = 1;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
@@ -59,14 +59,14 @@ const draw = () => {
       if (currentColumn[i] === false && currentPlayer === 1) {
         let red = document.getElementById("red-disc");
         ctx.drawImage(red, column2, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "red";
         currentPlayer = 2;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column2, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "yellow";
         currentPlayer = 1;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
@@ -83,14 +83,14 @@ const draw = () => {
       if (currentColumn[i] === false && currentPlayer === 1) {
         let red = document.getElementById("red-disc");
         ctx.drawImage(red, column3, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "red";
         currentPlayer = 2;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column3, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "yellow";
         currentPlayer = 1;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
@@ -107,14 +107,14 @@ const draw = () => {
       if (currentColumn[i] === false && currentPlayer === 1) {
         let red = document.getElementById("red-disc");
         ctx.drawImage(red, column4, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "red";
         currentPlayer = 2;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column4, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "yellow";
         currentPlayer = 1;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
@@ -131,14 +131,14 @@ const draw = () => {
       if (currentColumn[i] === false && currentPlayer === 1) {
         let red = document.getElementById("red-disc");
         ctx.drawImage(red, column5, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "red";
         currentPlayer = 2;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column5, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "yellow";
         currentPlayer = 1;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
@@ -154,14 +154,14 @@ const draw = () => {
       if (currentColumn[i] === false && currentPlayer === 1) {
         let red = document.getElementById("red-disc");
         ctx.drawImage(red, column6, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "red";
         currentPlayer = 2;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column6, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "yellow";
         currentPlayer = 1;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
@@ -177,21 +177,36 @@ const draw = () => {
       if (currentColumn[i] === false && currentPlayer === 1) {
         let red = document.getElementById("red-disc");
         ctx.drawImage(red, column7, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "red";
         currentPlayer = 2;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       } else if (currentColumn[i] === false && currentPlayer === 2) {
         let yellow = document.getElementById("yellow-disc");
         ctx.drawImage(yellow, column7, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
-        currentColumn[i] = true;
+        currentColumn[i] = "yellow";
         currentPlayer = 1;
         player.innerHTML = "Current Player: Player "+`${currentPlayer}`;
         break;
       }
     }
   }
+
+  gameOver();
 };
+
+function gameOver() {
+  let allSpaces = [].concat.apply([], gameBoard);
+  function isFilled(space) {
+    return space !== false;
+  }
+  if (allSpaces.every(isFilled)) {
+    alert("It's a draw!");
+    document.location.reload();
+  }
+
+  
+}
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -232,4 +247,4 @@ function keyUpHandler(e) {
   }
 }
 
-setInterval(draw, 100);
+setInterval(draw, 150);

@@ -25,6 +25,7 @@ for (let i=0; gameBoard.length < 7; i ++) {
 }
 
 const draw = () => {
+  gameOver();
 
   if (onePressed) {
     const currentColumn = gameBoard[0];
@@ -145,6 +146,7 @@ const draw = () => {
       }
     }
   }
+
   if (sixPressed) {
     const currentColumn = gameBoard[5];
     for (let i=0; i<currentColumn.length; i++) {
@@ -168,6 +170,7 @@ const draw = () => {
       }
     }
   }
+
   if (sevenPressed) {
     const currentColumn = gameBoard[6];
     for (let i=0; i<currentColumn.length; i++) {
@@ -191,8 +194,6 @@ const draw = () => {
       }
     }
   }
-
-  gameOver();
 };
 
 function gameOver() {
@@ -228,7 +229,7 @@ function gameOver() {
     }
   }
 
-  // check if horizontal in a row (same as veritcal after a transpose on gameboard)
+  // check if horizontal four in a row (same as veritcal after a transpose on gameboard)
   function transpose(arr) {
     return Object.keys(arr[0]).map(function(col) {
         return arr.map(function(row) { return row[col]; });
@@ -256,6 +257,9 @@ function gameOver() {
       }
     }
   }
+
+  // check if up diagonal four in a row
+
 }
 
 document.addEventListener("keydown", keyDownHandler, false);

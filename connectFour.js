@@ -9,17 +9,99 @@ let column4 = 40 + 3*discDiameter;
 let column5 = 50 + 4*discDiameter;
 let column6 = 60 + 5*discDiameter;
 let column7 = 70 + 6*discDiameter;
-
-const drawDiscs = window.onload = function() {
-  let red = document.getElementById("red-disc");
-  ctx.drawImage(red, column1, (canvas.height - discDiameter), discDiameter, discDiameter);
-  let yellow = document.getElementById("yellow-disc");
-  ctx.drawImage(yellow, column2, (canvas.height - discDiameter), discDiameter, discDiameter);
-};
+let onePressed = false;
+let twoPressed = false;
+let threePressed = false;
+let fourPressed = false;
+let fivePressed = false;
+let sixPressed = false;
+let sevenPressed = false;
+let currentPlayer = 1;
+let gameBoard = [];
+for (let i=0; gameBoard.length < 7; i ++) {
+  gameBoard.push([false, false, false, false, false, false]);
+}
 
 const draw = () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawDiscs();
+
+  if (onePressed) {
+    const currentColumn = gameBoard[0];
+    for (let i=0; i<currentColumn.length; i++) {
+      if (currentColumn[i] !== false) {
+        continue;
+      }
+      if (currentColumn[i] === false && currentPlayer === 1) {
+        let red = document.getElementById("red-disc");
+        ctx.drawImage(red, column1, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 2;
+      } else if (currentColumn[i] === false && currentPlayer === 2) {
+        let yellow = document.getElementById("yellow-disc");
+        ctx.drawImage(yellow, column1, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 1;
+      }
+    }
+  }
+
+  if (twoPressed) {
+    const currentColumn = gameBoard[1];
+    for (let i=0; i<currentColumn.length; i++) {
+      if (currentColumn[i] !== false) {
+        continue;
+      }
+      if (currentColumn[i] === false && currentPlayer === 1) {
+        let red = document.getElementById("red-disc");
+        ctx.drawImage(red, column2, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 2;
+      } else if (currentColumn[i] === false && currentPlayer === 2) {
+        let yellow = document.getElementById("yellow-disc");
+        ctx.drawImage(yellow, column2, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 1;
+      }
+    }
+  }
 };
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+
+function keyDownHandler(e) {
+  if (e.keyCode === 49) {
+    onePressed = true;
+  } else if (e.keyCode === 50) {
+    twoPressed = true;
+  } else if (e.keyCode === 51) {
+    threePressed = true;
+  } else if (e.keyCode === 52) {
+    fourPressed = true;
+  } else if (e.keyCode === 53) {
+    fivePressed = true;
+  } else if (e.keyCode === 54) {
+    sixPressed = true;
+  } else if (e.keyCode === 55) {
+    sevenPressed = true;
+  }
+}
+
+function keyUpHandler(e) {
+  if (e.keyCode === 49) {
+    onePressed = false;
+  } else if (e.keyCode === 50) {
+    twoPressed = false;
+  } else if (e.keyCode === 51) {
+    threePressed = false;
+  } else if (e.keyCode === 52) {
+    fourPressed = false;
+  } else if (e.keyCode === 53) {
+    fivePressed = false;
+  } else if (e.keyCode === 54) {
+    sixPressed = false;
+  } else if (e.keyCode === 55) {
+    sevenPressed = false;
+  }
+}
 
 setInterval(draw, 8);

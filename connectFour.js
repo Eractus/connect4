@@ -63,6 +63,104 @@ const draw = () => {
       }
     }
   }
+
+  if (threePressed) {
+    const currentColumn = gameBoard[2];
+    for (let i=0; i<currentColumn.length; i++) {
+      if (currentColumn[i] !== false) {
+        continue;
+      }
+      if (currentColumn[i] === false && currentPlayer === 1) {
+        let red = document.getElementById("red-disc");
+        ctx.drawImage(red, column3, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 2;
+      } else if (currentColumn[i] === false && currentPlayer === 2) {
+        let yellow = document.getElementById("yellow-disc");
+        ctx.drawImage(yellow, column3, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 1;
+      }
+    }
+  }
+
+  if (fourPressed) {
+    const currentColumn = gameBoard[3];
+    for (let i=0; i<currentColumn.length; i++) {
+      if (currentColumn[i] !== false) {
+        continue;
+      }
+      if (currentColumn[i] === false && currentPlayer === 1) {
+        let red = document.getElementById("red-disc");
+        ctx.drawImage(red, column4, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 2;
+      } else if (currentColumn[i] === false && currentPlayer === 2) {
+        let yellow = document.getElementById("yellow-disc");
+        ctx.drawImage(yellow, column4, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 1;
+      }
+    }
+  }
+
+  if (fivePressed) {
+    const currentColumn = gameBoard[4];
+    for (let i=0; i<currentColumn.length; i++) {
+      if (currentColumn[i] !== false) {
+        continue;
+      }
+      if (currentColumn[i] === false && currentPlayer === 1) {
+        let red = document.getElementById("red-disc");
+        ctx.drawImage(red, column5, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 2;
+      } else if (currentColumn[i] === false && currentPlayer === 2) {
+        let yellow = document.getElementById("yellow-disc");
+        ctx.drawImage(yellow, column5, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 1;
+      }
+    }
+  }
+  if (sixPressed) {
+    const currentColumn = gameBoard[5];
+    for (let i=0; i<currentColumn.length; i++) {
+      if (currentColumn[i] !== false) {
+        continue;
+      }
+      if (currentColumn[i] === false && currentPlayer === 1) {
+        let red = document.getElementById("red-disc");
+        ctx.drawImage(red, column6, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 2;
+      } else if (currentColumn[i] === false && currentPlayer === 2) {
+        let yellow = document.getElementById("yellow-disc");
+        ctx.drawImage(yellow, column6, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 1;
+      }
+    }
+  }
+  if (sevenPressed) {
+    const currentColumn = gameBoard[6];
+    for (let i=0; i<currentColumn.length; i++) {
+      if (currentColumn[i] !== false) {
+        continue;
+      }
+      if (currentColumn[i] === false && currentPlayer === 1) {
+        let red = document.getElementById("red-disc");
+        ctx.drawImage(red, column7, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 2;
+      } else if (currentColumn[i] === false && currentPlayer === 2) {
+        let yellow = document.getElementById("yellow-disc");
+        ctx.drawImage(yellow, column7, (canvas.height - (i+1)*discDiameter), discDiameter, discDiameter);
+        currentColumn[i] = true;
+        currentPlayer = 1;
+      }
+    }
+  }
 };
 
 document.addEventListener("keydown", keyDownHandler, false);

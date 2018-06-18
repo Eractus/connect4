@@ -227,6 +227,35 @@ function gameOver() {
       }
     }
   }
+
+  // check if horizontal in a row (same as veritcal after a transpose on gameboard)
+  function transpose(arr) {
+    return Object.keys(arr[0]).map(function(col) {
+        return arr.map(function(row) { return row[col]; });
+    });
+  }
+  let transposedBoard = transpose(gameBoard);
+
+  for (let i=0; i < transposedBoard.length; i++) {
+    let column = transposedBoard[i];
+    let prev = null;
+    let inARow = 0;
+    for (let j=0; j < column.length; j++) {
+      if (column[j] !== prev && column[j] !== false) {
+        prev = column[j];
+        inARow = 1;
+      } else if (column[j] === prev && column[j] !== false) {
+        inARow += 1;
+      }
+      if (inARow === 4 && prev === "red") {
+        alert("Player 1 wins!");
+        document.location.reload();
+      } else if (inARow === 4 && prev === "yellow") {
+        alert("Player 2 wins!");
+        document.location.reload();
+      }
+    }
+  }
 }
 
 document.addEventListener("keydown", keyDownHandler, false);

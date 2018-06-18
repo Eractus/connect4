@@ -1,6 +1,11 @@
+body {
+  position: relative;
+}
+
 #title {
+  font-family: 'Luckiest Guy';
   text-align: center;
-  font-size: 36px;
+  font-size: 50px;
 }
 
 #connect4Canvas {
@@ -9,10 +14,18 @@
 }
 
 #current-player {
+  font-family: 'Roboto Mono', monospace;
   font-size: 24px;
+  font-weight: 800;
+}
+
+#game-discs {
+  position: absolute;
+  bottom: 0;
 }
 
 #player-number {
+  font-family: 'Roboto Mono', monospace;
   font-size: 20px;
 }
 

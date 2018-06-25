@@ -405,4 +405,4 @@ function keyUpHandler(e) {
   }
 }
 
-setInterval(draw, 150);
+setInterval(draw, 180);
